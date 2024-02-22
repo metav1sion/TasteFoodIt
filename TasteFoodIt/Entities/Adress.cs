@@ -8,8 +8,8 @@ namespace TasteFoodIt.Entities
 	public class Adress
 	{
 		public int AdressId { get; set; }
-		public int Phone { get; set; }
-		public int Email { get; set; }
-		public int Description { get; set; }
+		public string Phone { get; set; }
+		public string Email { get; set; }
+		public string Description { get; set; }
 	}
 }
