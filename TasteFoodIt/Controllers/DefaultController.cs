@@ -33,8 +33,6 @@ namespace TasteFoodIt.Controllers
         }
         public PartialViewResult PartialNavbar()
         {
-	        
-
 	        return PartialView();
         }
         public PartialViewResult PartialSlider()
@@ -61,6 +59,21 @@ namespace TasteFoodIt.Controllers
 	        return PartialView();
         }
         public PartialViewResult PartialChef()
+        {
+	        return PartialView();
+        }
+
+        public PartialViewResult PartialDescription()
+        {
+	        return PartialView();
+        }
+
+        public PartialViewResult PartialSlogan()
+        {
+	        return PartialView();
+        }
+
+        public PartialViewResult PartialFooter()
         {
 	        return PartialView();
         }
