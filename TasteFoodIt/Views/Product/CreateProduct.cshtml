@@ -1,0 +1,49 @@
+﻿@model TasteFoodIt.Entities.Product
+@{
+    ViewBag.Title = "CreateProduct";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Ürün Ekleme Sayfası</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../Category/">Ana Sayfa</a></li>
+            <li class="breadcrumb-item">Ürünler</li>
+            <li class="breadcrumb-item active" aria-current="page">Ürün İşlemleri</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Form Basic -->
+            <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Ürün Ekleme Paneli</h6>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputCategory">Ürün Adı</label>
+                            @*<input type="text" name="CategoryName" class="form-control" id="exampleInputCategory" aria-describedby="emailHelp"
+        placeholder="Kategori Adını Giriniz">*@
+                            @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", @placeholder = "Ürün Adını Giriniz" })
+                            <br />
+                            @Html.TextBoxFor(x => x.ProductDescription, new { @class = "form-control", @placeholder = "Ürün Açıklaması Giriniz" })
+                            <br />
+                            @Html.TextBoxFor(x => x.ProductPrice, new { @class = "form-control", @placeholder = "Ürün Fiyatı Giriniz" })
+                            <br />
+                            <input class="form-control" type="file" name="file" id="formFileMultiple">
+                            <br />
+                            @{
+                                List<bool> options = new List<bool> { true, false };
+                            }
+                            @Html.DropDownListFor(x => x.IsActive, options.Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }), "Görünürlük Durumunu Seçiniz.", new { @class = "form-control" })
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ürünü Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

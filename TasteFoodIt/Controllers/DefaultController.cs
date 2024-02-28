@@ -60,7 +60,8 @@ namespace TasteFoodIt.Controllers
         }
         public PartialViewResult PartialChef()
         {
-	        return PartialView();
+            var values = context.Chefs.ToList();
+	        return PartialView(values);
         }
 
         public PartialViewResult PartialDescription()
