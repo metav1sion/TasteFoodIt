@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "ProductList";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
 }
 
 <div class="container-fluid" id="container-wrapper">
@@ -26,6 +27,7 @@
                             <tr>
                                 <th>Ürün ID</th>
                                 <th>Ürün Adı</th>
+                                <th>Ürün Kategorisi</th>
                                 <th>Ürün Açıklaması</th>
                                 <th>Ürün Fiyatı</th>
                                 <th>Görüntülenme Durumu</th>
@@ -36,9 +38,11 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
+                                count++;
                                 <tr>
-                                    <td><a href="#">@item.ProductId</a></td>
+                                    <td><a href="#">@count</a></td>
                                     <td>@item.ProductName</td>
+                                    <td>@item.Category.CategoryName</td>
                                     <td>@item.ProductDescription</td>
                                     <td>@item.ProductPrice</td>
                                     <td>@item.IsActive</td>

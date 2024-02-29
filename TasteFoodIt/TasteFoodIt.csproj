@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AdminLayoutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ChefController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -155,6 +156,10 @@
     <Compile Include="Migrations\202402271901458_mig1.cs" />
     <Compile Include="Migrations\202402271901458_mig1.Designer.cs">
       <DependentUpon>202402271901458_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202402291728061_mig2.cs" />
+    <Compile Include="Migrations\202402291728061_mig2.Designer.cs">
+      <DependentUpon>202402291728061_mig2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -4802,6 +4807,7 @@
     <Content Include="Views\Product\CreateProduct.cshtml" />
     <Content Include="Views\Product\UpdateProduct.cshtml" />
     <Content Include="Views\Chef\ChefList.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4844,6 +4850,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202402271901458_mig1.resx">
       <DependentUpon>202402271901458_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402291728061_mig2.resx">
+      <DependentUpon>202402291728061_mig2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

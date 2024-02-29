@@ -20,10 +20,10 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Ürün Ekleme Paneli</h6>
                 </div>
-                <div class="card-body">
+                <div class="card-body"> 
                     <form method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="exampleInputCategory">Ürün Adı</label>
+                            <label>Ürün Adı</label>
                             @*<input type="text" name="CategoryName" class="form-control" id="exampleInputCategory" aria-describedby="emailHelp"
         placeholder="Kategori Adını Giriniz">*@
                             @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", @placeholder = "Ürün Adını Giriniz" })
@@ -32,6 +32,8 @@
                             <br />
                             @Html.TextBoxFor(x => x.ProductPrice, new { @class = "form-control", @placeholder = "Ürün Fiyatı Giriniz" })
                             <br />
+                            @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.v, "Ürün Kategorisini Seçiniz", new{@class = "form-control"})
+                            <br/>
                             <input class="form-control" type="file" name="file" id="formFileMultiple">
                             <br />
                             @{

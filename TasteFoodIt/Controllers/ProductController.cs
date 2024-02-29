@@ -12,10 +12,8 @@ namespace TasteFoodIt.Controllers
     public class ProductController : Controller
     {
         TasteContext ctx = new TasteContext();
-        // GET: Product
         public ActionResult ProductList()
         {
-            //TasteContext context = new TasteContext();
             var values = ctx.Products.ToList();
             return View(values);
         }
@@ -23,6 +21,14 @@ namespace TasteFoodIt.Controllers
         [HttpGet]
         public ActionResult CreateProduct()
         {
+            List<SelectListItem> values = (from x in ctx.Categories.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.CategoryName,
+                                                Value = x.CategoryId.ToString()
+                                            }).ToList();
+
+            ViewBag.v = values;
             return View();
         }
 
@@ -54,6 +60,13 @@ namespace TasteFoodIt.Controllers
         public ActionResult UpdateProduct(int id)
         {
             var value = ctx.Products.Find(id);
+            List<SelectListItem> values = (from x in ctx.Categories.ToList()
+                select new SelectListItem
+                {
+                    Text = x.CategoryName,
+                    Value = x.CategoryId.ToString()
+                }).ToList();
+            ViewBag.v = values;
             return View(value);
         }
         [HttpPost]
@@ -73,6 +86,7 @@ namespace TasteFoodIt.Controllers
             value.ProductName = p.ProductName;
             value.ProductDescription = p.ProductDescription;
             value.ImageUrl = p.ImageUrl;
+            value.CategoryId = p.CategoryId;
             value.IsActive = p.IsActive;
             value.ProductPrice = p.ProductPrice;
             ctx.SaveChanges();
