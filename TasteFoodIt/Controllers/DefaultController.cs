@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TasteFoodIt.Context;
+using TasteFoodIt.Entities;
 
 namespace TasteFoodIt.Controllers
 {
@@ -78,5 +79,21 @@ namespace TasteFoodIt.Controllers
         {
 	        return PartialView();
         }
-	}
+
+        [HttpGet]
+        public PartialViewResult PartialReservation()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public PartialViewResult PartialReservation(Reservation P)
+        {
+            P.ReservationStatus = "false";
+            P.GuestCount = (byte)P.GuestCount;
+            context.Reservations.Add(P);
+            context.SaveChanges();
+            return PartialView("PartialReservation");
+        }
+    }
 }

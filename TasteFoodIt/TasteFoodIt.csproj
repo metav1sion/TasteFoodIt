@@ -4819,6 +4819,8 @@
     <Content Include="Views\Chef\ChefList.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Notification\NotificationList.cshtml" />
+    <Content Include="Views\Default\PartialReservation.cshtml" />
+    <Content Include="Views\Chef\AddChef.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
