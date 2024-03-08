@@ -92,6 +92,10 @@ namespace TasteFoodIt.Controllers
             P.ReservationStatus = "false";
             P.GuestCount = (byte)P.GuestCount;
             context.Reservations.Add(P);
+            Notification val = new Notification();
+            val.Date = DateTime.Now;
+            val.Description = P.Name + " isimli müşteri" + P.ReservationDate.ToString("MMMM, dd, yyyy") + " " + P.ReservationTime + " tarihine rezevasyon yapmıştır.";
+            context.Notifications.Add(val);
             context.SaveChanges();
             return PartialView("PartialReservation");
         }

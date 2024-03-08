@@ -1,6 +1,6 @@
 ﻿@model TasteFoodIt.Entities.Chef
 @{
-    ViewBag.Title = "AddChef";
+    ViewBag.Title = "UpdateChef";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -23,27 +23,35 @@
                 <div class="card-body">
                     <form method="post" enctype="multipart/form-data">
                         <div class="form-group">
+                            <label>Referans ID</label>
+                            @Html.TextBoxFor(x => x.ChefId, new { @class = "form-control", @readonly = "readonly" })
+                            <br />
                             <label for="exampleInputCategory">Şef Adı</label>
                             @Html.TextBoxFor(Model => Model.NameSurname, new { @class = "form form-control" })
                             <br />
                             <label for="exampleInputCategory">Şef Title</label>
                             @Html.TextBoxFor(Model => Model.Title, new { @class = "form form-control" })
                             <br />
+                            <label>Mevcut Görsel</label>
+                            <br />
+                            <img style="width: 30%; height: 30%;" src="@Model.ImageUrl" alt="@Model.ImageUrl" class="img-thumbnail">
+                            <br />
                             <div class="mb-3">
-                                <label>Şef Görseli</label>
+                                <label>Şef Görseli Değiştirme</label>
                                 <input class="form-control" type="file" name="file" id="formFileMultiple">
                             </div>
-                            <br/>
+                            <br />
                             <label for="exampleInputCategory">Şef Açıklaması</label>
                             @Html.TextBoxFor(Model => Model.Description, new { @class = "form form-control" })
                             <br />
                         </div>
-                        <button type="submit" class="btn btn-primary">Şefi Ekle</button>
+                        <button type="submit" class="btn btn-primary">Şefi Güncelle</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 

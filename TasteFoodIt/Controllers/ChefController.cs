@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,8 +27,16 @@ namespace TasteFoodIt.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddChef(Chef c)
+        public ActionResult AddChef(Chef c, HttpPostedFileBase file)
         {
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/img"), fileName);
+                file.SaveAs(path);
+
+                c.ImageUrl = "/img/" + fileName;
+            }
             db.Chefs.Add(c);
             db.SaveChanges();
             return RedirectToAction("ChefList");
@@ -41,9 +50,22 @@ namespace TasteFoodIt.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateChef(Chef c)
+        public ActionResult UpdateChef(Chef c, HttpPostedFileBase file)
         {
-            db.Chefs.Add(c);
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/img"), fileName);
+                file.SaveAs(path);
+
+                c.ImageUrl = "/img/" + fileName;
+            }
+
+            var value = db.Chefs.FirstOrDefault(x=>x.ChefId == c.ChefId);
+            value.Title = c.Title;
+            value.Description = c.Description;
+            value.ImageUrl = c.ImageUrl;
+            value.NameSurname = c.NameSurname;
             db.SaveChanges();
             return RedirectToAction("ChefList");
         }
@@ -52,6 +74,7 @@ namespace TasteFoodIt.Controllers
         {
             var chef = db.Chefs.FirstOrDefault(x=>x.ChefId == id);
             db.Chefs.Remove(chef);
+            db.SaveChanges();
             return RedirectToAction("ChefList");
         }
 

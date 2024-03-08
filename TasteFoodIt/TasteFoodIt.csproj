@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\TasteContext.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminLayoutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ChefController.cs" />
@@ -4821,6 +4822,8 @@
     <Content Include="Views\Notification\NotificationList.cshtml" />
     <Content Include="Views\Default\PartialReservation.cshtml" />
     <Content Include="Views\Chef\AddChef.cshtml" />
+    <Content Include="Views\Chef\UpdateChef.cshtml" />
+    <Content Include="Views\About\AboutList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

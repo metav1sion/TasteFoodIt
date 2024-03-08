@@ -1,16 +1,16 @@
-﻿@model List<TasteFoodIt.Entities.Chef>
+﻿@model List<TasteFoodIt.Entities.About>
 @{
-    ViewBag.Title = "ChefList";
+    ViewBag.Title = "AboutList";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="container-fluid" id="container-wrapper">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Şef Listesi</h1>
+        <h1 class="h3 mb-0 text-gray-800">Hakkımızda Listesi</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./">Ana Sayfa</a></li>
-            <li class="breadcrumb-item">Şefler</li>
-            <li class="breadcrumb-item active" aria-current="page">Şef İşlemleri</li>
+            <li class="breadcrumb-item">Hakkımızda</li>
+            <li class="breadcrumb-item active" aria-current="page">Hakkımızda İşlemleri</li>
         </ol>
     </div>
 
@@ -19,15 +19,13 @@
             <div class="card">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Simple Tables</h6>
-                </div>
+                </div> @Model[0].
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th>Şef ID</th>
-                                <th>Şef Adı</th>
-                                <th>Şef Ünvanı</th>
-                                <th>Açıklama</th>
+                                <th>Hakkımızda ID</th>
+                                <th>Hakkımızda Başlık</th>
                                 <th>Sil</th>
                                 <th>Güncelle</th>
                             </tr>
@@ -36,12 +34,10 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td><a href="#">@item.ChefId</a></td>
-                                    <td>@item.NameSurname</td>
+                                    <td><a href="#">@item.AboutId</a></td>
                                     <td>@item.Title</td>
-                                    <td>@item.Description</td>
-                                    <td><a href="/Chef/DeleteChef/@item.ChefId" class="btn btn-sm btn-danger">Sil</a></td>
-                                    <td><a href="/Chef/UpdateChef/@item.ChefId" class="btn btn-sm btn-success">Güncelle</a></td>
+                                    <td><a href="#" class="btn btn-sm btn-danger">Sil</a></td>
+                                    <td><a href="#" class="btn btn-sm btn-success">Güncelle</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -53,5 +49,4 @@
         </div>
     </div>
 </div>
-
 
