@@ -38,8 +38,8 @@ namespace TasteFoodIt.Controllers
         }
         public PartialViewResult PartialSlider()
         {
-
-	        return PartialView();
+            var values = context.Sliders.ToList();
+	        return PartialView(values);
         }
 
         public PartialViewResult PartialAbout()
@@ -77,7 +77,8 @@ namespace TasteFoodIt.Controllers
 
         public PartialViewResult PartialFooter()
         {
-	        return PartialView();
+            var values = context.OpenDayHours.ToList();
+	        return PartialView(values);
         }
 
         [HttpGet]

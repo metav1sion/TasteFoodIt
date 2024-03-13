@@ -138,8 +138,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Controllers\OpenDayHourController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Entities\About.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Adress.cs" />
@@ -150,6 +153,7 @@
     <Compile Include="Entities\OpenDayHour.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Reservation.cs" />
+    <Compile Include="Entities\Slider.cs" />
     <Compile Include="Entities\Testimonial.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,6 +177,10 @@
     <Compile Include="Migrations\202403051740094_mig4.cs" />
     <Compile Include="Migrations\202403051740094_mig4.Designer.cs">
       <DependentUpon>202403051740094_mig4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403132049223_mig5.cs" />
+    <Compile Include="Migrations\202403132049223_mig5.Designer.cs">
+      <DependentUpon>202403132049223_mig5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -4828,6 +4836,11 @@
     <Content Include="Views\About\AboutList.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Slider\SliderList.cshtml" />
+    <Content Include="Views\Slider\AddSlider.cshtml" />
+    <Content Include="Views\Slider\UpdateSlider.cshtml" />
+    <Content Include="Views\OpenDayHour\OpenDayHourList.cshtml" />
+    <Content Include="Views\OpenDayHour\UpdateOpenDayHour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4836,6 +4849,7 @@
     <Folder Include="Templates\ruang-admin\.git\objects\info\" />
     <Folder Include="Templates\ruang-admin\.git\objects\pack\" />
     <Folder Include="Templates\ruang-admin\.git\refs\tags\" />
+    <Folder Include="Views\Reservation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -4879,6 +4893,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403051740094_mig4.resx">
       <DependentUpon>202403051740094_mig4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403132049223_mig5.resx">
+      <DependentUpon>202403132049223_mig5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
