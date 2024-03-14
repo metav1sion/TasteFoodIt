@@ -35,7 +35,7 @@
                             <br />
                             <label>Güncel Görsel</label>
                             <br/>
-                            <img src="@Model.ImageUrl"/>
+                            <img style="width: 30%; height: 30%;" src="@Model.ImageUrl"/>
                             <br/>
                             <br/>
                             @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.v, "Ürün Kategorisini Seçiniz", new{@class = "form-control"})
