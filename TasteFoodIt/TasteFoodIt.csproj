@@ -227,6 +227,7 @@
     <Content Include="img\referansguncelleme.png" />
     <Content Include="img\rezervasyon.png" />
     <Content Include="img\rezervasyonlist.png" />
+    <Content Include="img\sema.png" />
     <Content Include="img\slidervebildirim.png" />
     <Content Include="img\urunguncelleme.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
