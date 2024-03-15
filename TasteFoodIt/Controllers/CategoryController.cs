@@ -12,6 +12,7 @@ namespace TasteFoodIt.Controllers
     {
         TasteContext context = new TasteContext();
         // GET: Category
+        [Authorize]
         public ActionResult CategoryList()
         {
             var values = context.Categories.ToList();

@@ -11,6 +11,7 @@ namespace TasteFoodIt.Controllers
     {
         private TasteContext context = new TasteContext();
         // GET: AdminLayout
+        [Authorize]
         public ActionResult Index()
         {
             return View();
@@ -29,6 +30,8 @@ namespace TasteFoodIt.Controllers
         {
             ViewBag.notificationIsReadByFlaseCount = context.Notifications.Where(x => x.IsRead == false).Count();
             var values = context.Notifications.Where(x => x.IsRead == false).ToList();
+            ViewBag.img = Session["img"];
+            ViewBag.name = Session["a"];
             return PartialView(values);
         }
         public PartialViewResult PartialFooter()

@@ -12,6 +12,7 @@ namespace TasteFoodIt.Controllers
     {
         // GET: Testimonial
         private TasteContext ctx = new TasteContext();
+        [Authorize]
         public ActionResult TestimonialList()
         {
             var values = ctx.Testimonials.ToList();

@@ -10,6 +10,7 @@ namespace TasteFoodIt.Controllers
     public class NotificationController : Controller
     {
         private TasteContext ctx = new TasteContext();
+        [Authorize]
         public ActionResult NotificationList()
         {
             var values = ctx.Notifications.ToList();

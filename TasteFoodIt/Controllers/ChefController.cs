@@ -14,6 +14,7 @@ namespace TasteFoodIt.Controllers
         private TasteContext db = new TasteContext();
 
         // GET: Chef
+        [Authorize]
         public ActionResult ChefList()
         {
             var values = db.Chefs.ToList();

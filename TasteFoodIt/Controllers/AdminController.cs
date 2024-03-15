@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TasteFoodIt.Context;
+using TasteFoodIt.Entities;
 
 namespace TasteFoodIt.Controllers
 {
@@ -11,6 +12,8 @@ namespace TasteFoodIt.Controllers
     {
         // GET: Admin
         private TasteContext context = new TasteContext();
+        
+        [Authorize]
         public ActionResult AdminList()
         {
             var values = context.Admins.ToList();
@@ -31,9 +34,30 @@ namespace TasteFoodIt.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddAdmin()
+        public ActionResult AddAdmin(Admin a)
         {
-            return View();
+            context.Admins.Add(a);
+            context.SaveChanges();
+            return RedirectToAction("AdminList");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateAdmin(int id)
+        {
+            var value = context.Admins.Find(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateAdmin(Admin a)
+        {
+            var value = context.Admins.Find(a.AdminId);
+            value.Username = a.Username;
+            value.Password = a.Password;
+            value.ImgURL = a.ImgURL;
+            value.NameSurname = a.NameSurname;
+            context.SaveChanges();
+            return RedirectToAction("AdminList");
         }
     }
 }

@@ -11,6 +11,7 @@ namespace TasteFoodIt.Controllers
     {
         TasteContext db = new TasteContext();
         // GET: About
+        [Authorize]
         public ActionResult AboutList()
         {
             var valus = db.Abouts.ToList();

@@ -13,6 +13,7 @@ namespace TasteFoodIt.Controllers
         // GET: Adress
         private TasteContext ctx = new TasteContext();
 
+        [Authorize]
         [HttpGet]
         public ActionResult Index(int id)
         {

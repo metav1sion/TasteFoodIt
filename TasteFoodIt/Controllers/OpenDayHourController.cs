@@ -12,6 +12,7 @@ namespace TasteFoodIt.Controllers
     {
         // GET: OpenDayHour
         private TasteContext ctx = new TasteContext();
+        [Authorize]
         public ActionResult OpenDayHourList()
         {
             var values = ctx.OpenDayHours.ToList();

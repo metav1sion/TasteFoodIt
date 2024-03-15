@@ -10,7 +10,7 @@ namespace TasteFoodIt.Controllers
 {
     public class DefaultController : Controller
     {
-	    private TasteContext context = new TasteContext();
+        private TasteContext context = new TasteContext();
         public ActionResult Index()
         {
             return View();
@@ -18,68 +18,68 @@ namespace TasteFoodIt.Controllers
 
         public PartialViewResult PartialHead()
         {
-	        return PartialView();
+            return PartialView();
         }
         public PartialViewResult PartialScript()
         {
-	        return PartialView();
+            return PartialView();
         }
         public PartialViewResult PartialNavbarInfo()
         {
-	        ViewBag.phone = context.Adresses.Select(x => x.Phone).FirstOrDefault();
-	        ViewBag.email = context.Adresses.Select(x => x.Email).FirstOrDefault();
-	        ViewBag.description = context.Adresses.Select(x => x.Description).FirstOrDefault();
+            ViewBag.phone = context.Adresses.Select(x => x.Phone).FirstOrDefault();
+            ViewBag.email = context.Adresses.Select(x => x.Email).FirstOrDefault();
+            ViewBag.description = context.Adresses.Select(x => x.Description).FirstOrDefault();
 
-	        return PartialView();
+            return PartialView();
         }
         public PartialViewResult PartialNavbar()
         {
-	        return PartialView();
+            return PartialView();
         }
         public PartialViewResult PartialSlider()
         {
             var values = context.Sliders.ToList();
-	        return PartialView(values);
+            return PartialView(values);
         }
 
         public PartialViewResult PartialAbout()
         {
-            ViewBag.title = context.Abouts.Select(x=>x.Title).FirstOrDefault();
-            ViewBag.description = context.Abouts.Select(x=>x.Description).FirstOrDefault();
-            ViewBag.url = context.Abouts.Select(x=>x.ImgUrl).FirstOrDefault();
-	        return PartialView();
+            ViewBag.title = context.Abouts.Select(x => x.Title).FirstOrDefault();
+            ViewBag.description = context.Abouts.Select(x => x.Description).FirstOrDefault();
+            ViewBag.url = context.Abouts.Select(x => x.ImgUrl).FirstOrDefault();
+            return PartialView();
         }
         public PartialViewResult PartialMenu()
         {
-	        var values = context.Products.ToList();
-	        return PartialView(values);
+            var values = context.Products.ToList();
+            return PartialView(values);
         }
 
         public PartialViewResult PartialTestimonial()
         {
             var value = context.Testimonials.ToList();
-	        return PartialView(value);
+            return PartialView(value);
         }
         public PartialViewResult PartialChef()
         {
             var values = context.Chefs.ToList();
-	        return PartialView(values);
+            return PartialView(values);
         }
 
         public PartialViewResult PartialDescription()
         {
-	        return PartialView();
+            return PartialView();
         }
 
         public PartialViewResult PartialSlogan()
         {
-	        return PartialView();
+            return PartialView();
         }
 
         public PartialViewResult PartialFooter()
         {
             var values = context.OpenDayHours.ToList();
-	        return PartialView(values);
+            return PartialView(values);
         }
 
         [HttpGet]
@@ -96,10 +96,26 @@ namespace TasteFoodIt.Controllers
             context.Reservations.Add(P);
             Notification val = new Notification();
             val.Date = DateTime.Now;
-            val.Description = P.Name + " isimli müşteri" + P.ReservationDate.ToString("MMMM, dd, yyyy") + " " + P.ReservationTime + " tarihine rezevasyon yapmıştır.";
+            val.Description = P.Name + " isimli müşteri " + P.ReservationDate.ToString("MMMM, dd, yyyy") + " " + P.ReservationTime + " tarihine rezevasyon yapmıştır.";
             context.Notifications.Add(val);
             context.SaveChanges();
             return PartialView("PartialReservation");
+        }
+
+        public PartialViewResult PartialStatistic()
+        {
+            int count = 0;
+            var values = context.Reservations.ToList();
+            foreach (var item in values)
+            {
+                count = count + item.GuestCount + 1;
+            }
+
+            ViewBag.customer = count;
+            ViewBag.cheffs = context.Chefs.Count();
+            ViewBag.food = context.Products.Count();
+            ViewBag.reservation = context.Reservations.Where(x => x.ReservationStatus == "true").Count();
+            return PartialView();
         }
     }
 }

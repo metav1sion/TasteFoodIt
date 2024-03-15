@@ -27,10 +27,19 @@ namespace TasteFoodIt.Controllers
             if (values != null)
             {
                 FormsAuthentication.SetAuthCookie(values.Username, true);
-                Session["a"] = values.Username;
-                return RedirectToAction("ProductList", "Product");
+                Session["a"] = values.NameSurname;
+                Session["img"] = values.ImgURL;
+                return RedirectToAction("Index", "AdminProfile", new { id = values.AdminId });
+                
             }
             return View();
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login"); // veya başka bir sayfaya yönlendirme yapabilirsiniz
         }
     }
 }

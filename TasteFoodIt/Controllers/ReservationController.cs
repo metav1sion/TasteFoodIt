@@ -12,6 +12,7 @@ namespace TasteFoodIt.Controllers
     {
         // GET: Reservation
         private TasteContext ctx = new TasteContext();
+        [Authorize]
         public ActionResult ReservationList()
         {
             var values = ctx.Reservations.ToList();

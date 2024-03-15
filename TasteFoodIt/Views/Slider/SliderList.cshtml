@@ -44,15 +44,20 @@
                             }
                         </tbody>
                     </table>
-                    <a href="/Slider/AddSlider" class="btn btn-sm btn-primary ml-2 mt-2">Yeni Slider Girişi</a>
+                    @{
+                        if (ViewBag.slidercount >= 3)
+                        {
+                            <a href="/Slider/AddSlider" class="btn btn-sm btn-primary ml-2 mt-2 disabled">Yeni Slider Girişi</a>
+                        }
+                        else
+                        {
+                            <a href="/Slider/AddSlider" class="btn btn-sm btn-primary ml-2 mt-2">Yeni Slider Girişi</a>
+                        }
+                    }
                 </div>
                 <div class="card-footer"></div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
 

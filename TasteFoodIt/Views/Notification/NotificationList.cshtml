@@ -28,8 +28,8 @@
                                 <th>Bildirim ID</th>
                                 <th>Bildirim İçeriği</th>
                                 <th>Okunma Durumu</th>
-                                <th>Sil</th>
-                                <th>Güncelle</th>
+                                @*<th>Sil</th>
+                                <th>Güncelle</th>*@
                             </tr>
                         </thead>
                         <tbody>
@@ -46,13 +46,12 @@
                                     {
                                             <td><a href="/Notification/NotificationIsReadChangeToTrue/@item.NotificationID" class="btn btn-sm btn-warning">Okundu Olarak İşaretle</a></td>
                                     }
-                                    <td><a href="/Category/UpdateCategory/@item.NotificationID" class="btn btn-sm btn-danger">Sil</a></td>
-                                    <td><a href="/Category/UpdateCategory/@item.NotificationID" class="btn btn-sm btn-success">Güncelle</a></td>
+                                    @*<td><a href="/Category/UpdateCategory/@item.NotificationID" class="btn btn-sm btn-danger">Sil</a></td>
+                                    <td><a href="/Category/UpdateCategory/@item.NotificationID" class="btn btn-sm btn-success">Güncelle</a></td>*@
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <a href="/Category/CreateCategory" class="btn btn-sm btn-primary">Yeni Kategori Girişi</a>
                 </div>
                 <div class="card-footer"></div>
             </div>

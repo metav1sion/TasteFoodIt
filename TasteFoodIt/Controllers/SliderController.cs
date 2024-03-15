@@ -13,9 +13,11 @@ namespace TasteFoodIt.Controllers
     {
         // GET: Slider
         private TasteContext ctx = new TasteContext();
+        [Authorize]
         public ActionResult SliderList()
         {
             var values = ctx.Sliders.ToList();
+            ViewBag.slidercount = values.Count;
             return View(values);
         }
 

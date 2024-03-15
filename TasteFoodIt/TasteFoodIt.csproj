@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminLayoutController.cs" />
+    <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\AdressController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ChefController.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
+    <Compile Include="Controllers\SocialMediaController.cs" />
     <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Entities\About.cs" />
     <Compile Include="Entities\Admin.cs" />
@@ -185,6 +187,14 @@
     <Compile Include="Migrations\202403132049223_mig5.Designer.cs">
       <DependentUpon>202403132049223_mig5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403150707543_mig6.cs" />
+    <Compile Include="Migrations\202403150707543_mig6.Designer.cs">
+      <DependentUpon>202403150707543_mig6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403150732156_mig7.cs" />
+    <Compile Include="Migrations\202403150732156_mig7.Designer.cs">
+      <DependentUpon>202403150732156_mig7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -208,6 +218,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\alt.png" />
+    <Content Include="img\chefs.png" />
+    <Content Include="img\dashboard.png" />
+    <Content Include="img\feature.png" />
+    <Content Include="img\giris.png" />
+    <Content Include="img\profilecard.png" />
+    <Content Include="img\referansguncelleme.png" />
+    <Content Include="img\rezervasyon.png" />
+    <Content Include="img\slidervebildirim.png" />
+    <Content Include="img\urunguncelleme.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -228,6 +248,21 @@
     <Content Include="Templates\colorlib-error-404-4\css\style.css" />
     <Content Include="Templates\colorlib-error-404-4\index.html" />
     <Content Include="Templates\colorlib-error-404-4\readme.txt" />
+    <Content Include="Templates\login-form-15\css\bootstrap.min.css" />
+    <Content Include="Templates\login-form-15\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="Templates\login-form-15\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="Templates\login-form-15\css\bootstrap\mixins\_transition.css" />
+    <Content Include="Templates\login-form-15\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="Templates\login-form-15\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="Templates\login-form-15\css\bootstrap\_media.css" />
+    <Content Include="Templates\login-form-15\css\style.css" />
+    <Content Include="Templates\login-form-15\images\bg-1.jpg" />
+    <Content Include="Templates\login-form-15\index.html" />
+    <Content Include="Templates\login-form-15\js\bootstrap.min.js" />
+    <Content Include="Templates\login-form-15\js\jquery.min.js" />
+    <Content Include="Templates\login-form-15\js\main.js" />
+    <Content Include="Templates\login-form-15\js\popper.js" />
+    <Content Include="Templates\login-form-15\main.html" />
     <Content Include="Templates\ruang-admin\.gitattributes" />
     <Content Include="Templates\ruang-admin\404.html" />
     <Content Include="Templates\ruang-admin\alerts.html" />
@@ -4851,14 +4886,117 @@
     <Content Include="Views\Adress\Index.cshtml" />
     <Content Include="Views\Category\GoToProducts.cshtml" />
     <Content Include="Views\Admin\AdminList.cshtml" />
+    <Content Include="Views\Admin\AddAdmin.cshtml" />
+    <Content Include="Views\Admin\UpdateAdmin.cshtml" />
+    <Content Include="Views\Default\PartialStatistic.cshtml" />
+    <Content Include="Views\AdminProfile\Index.cshtml" />
+    <Content Include="Templates\login-form-15\.DS_Store" />
+    <Content Include="Templates\login-form-15\css\.DS_Store" />
+    <Content Include="Templates\login-form-15\css\bootstrap\.DS_Store" />
+    <Content Include="Templates\login-form-15\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="Templates\login-form-15\fonts\.DS_Store" />
+    <Content Include="Templates\login-form-15\images\.DS_Store" />
+    <Content Include="Templates\login-form-15\js\.DS_Store" />
+    <Content Include="Templates\login-form-15\scss\.DS_Store" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\.DS_Store" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_alert.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_badge.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_button-group.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_buttons.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_card.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_carousel.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_close.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_code.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_forms.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_functions.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_grid.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_images.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_input-group.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_list-group.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_media.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_mixins.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_modal.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_nav.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_navbar.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_pagination.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_popover.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_print.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_progress.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_reboot.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_root.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_spinners.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_tables.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_toasts.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_transitions.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_type.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_utilities.scss" />
+    <Content Include="Templates\login-form-15\scss\bootstrap\_variables.scss" />
+    <Content Include="Templates\login-form-15\scss\style.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="img\" />
     <Folder Include="Models\" />
     <Folder Include="Templates\ruang-admin\.git\objects\info\" />
     <Folder Include="Templates\ruang-admin\.git\objects\pack\" />
     <Folder Include="Templates\ruang-admin\.git\refs\tags\" />
+    <Folder Include="Views\SocialMedia\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -4905,6 +5043,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403132049223_mig5.resx">
       <DependentUpon>202403132049223_mig5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403150707543_mig6.resx">
+      <DependentUpon>202403150707543_mig6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403150732156_mig7.resx">
+      <DependentUpon>202403150732156_mig7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
